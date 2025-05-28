@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exclusive Piano Records | New Drops</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Exclusive Piano Records</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="new-drops.html" class="active">New Drops</a></li>
+                    <li><a href="playlist.html">Playlist</a></li>
+                    <li><a href="producers.html">Producers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h2>Latest Drops</h2>
+                <p>Fresh unreleased Amapiano tracks updated weekly</p>
+            </div>
+        </section>
+
+        <section class="tracks-list">
+            <div class="container">
+                <div class="filter-controls">
+                    <select id="genre-filter">
+                        <option value="all">All Genres</option>
+                        <option value="amapiano">Amapiano</option>
+                        <option value="gqom">Gqom</option>
+                        <option value="afrohouse">Afro House</option>
+                    </select>
+                    <select id="sort-by">
+                        <option value="newest">Newest First</option>
+                        <option value="popular">Most Popular</option>
+                        <option value="az">A-Z</option>
+                    </select>
+                </div>
+
+                <div class="tracks-grid">
+                    <div class="track-card" data-genre="amapiano">
+                        <img src="https://via.placeholder.com/300x300" alt="Track Cover">
+                        <h3>Johannesburg Nights</h3>
+                        <p>Kabza De Small</p>
+                        <div class="track-meta">
+                            <span class="genre">Amapiano</span>
+                            <span class="date">2 days ago</span>
+                        </div>
+                        <audio controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <button class="btn btn-small add-to-playlist" data-track="Johannesburg Nights">Add to Playlist</button>
+                    </div>
+
+                    <div class="track-card" data-genre="amapiano">
+                        <img src="https://via.placeholder.com/300x300" alt="Track Cover">
+                        <h3>Soweto Sunset</h3>
+                        <p>DJ Maphorisa</p>
+                        <div class="track-meta">
+                            <span class="genre">Amapiano</span>
+                            <span class="date">1 week ago</span>
+                        </div>
+                        <audio controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <button class="btn btn-small add-to-playlist" data-track="Soweto Sunset">Add to Playlist</button>
+                    </div>
+
+                    <div class="track-card" data-genre="gqom">
+                        <img src="https://via.placeholder.com/300x300" alt="Track Cover">
+                        <h3>Durban Waves</h3>
+                        <p>DJ Tira</p>
+                        <div class="track-meta">
+                            <span class="genre">Gqom</span>
+                            <span class="date">2 weeks ago</span>
+                        </div>
+                        <audio controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <button class="btn btn-small add-to-playlist" data-track="Durban Waves">Add to Playlist</button>
+                    </div>
+
+                    <div class="track-card" data-genre="afrohouse">
+                        <img src="https://via.placeholder.com/300x300" alt="Track Cover">
+                        <h3>Lagos Groove</h3>
+                        <p>Black Coffee</p>
+                        <div class="track-meta">
+                            <span class="genre">Afro House</span>
+                            <span class="date">3 weeks ago</span>
+                        </div>
+                        <audio controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <button class="btn btn-small add-to-playlist" data-track="Lagos Groove">Add to Playlist</button>
+                    </div>
+
+                    <div class="track-card" data-genre="amapiano">
+                        <img src="https://via.placeholder.com/300x300" alt="Track Cover">
+                        <h3>Pretoria Heat</h3>
+                        <p>Major League DJz</p>
+                        <div class="track-meta">
+                            <span class="genre">Amapiano</span>
+                            <span class="date">1 month ago</span>
+                        </div>
+                        <audio controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <button class="btn btn-small add-to-playlist" data-track="Pretoria Heat">Add to Playlist</button>
+                    </div>
+
+                    <div class="track-card" data-genre="amapiano">
+                        <img src="https://via.placeholder.com/300x300" alt="Track Cover">
+                        <h3>Cape Town Breeze</h3>
+                        <p>MFR Souls</p>
+                        <div class="track-meta">
+                            <span class="genre">Amapiano</span>
+                            <span class="date">1 month ago</span>
+                        </div>
+                        <audio controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <button class="btn btn-small add-to-playlist" data-track="Cape Town Breeze">Add to Playlist</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Exclusive Piano Records</h3>
+                    <p>Bringing you the hottest unreleased Amapiano tracks from across Africa.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="new-drops.html">New Drops</a></li>
+                        <li><a href="playlist.html">Playlist</a></li>
+                        <li><a href="producers.html">Producers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-soundcloud"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Exclusive Piano Records. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

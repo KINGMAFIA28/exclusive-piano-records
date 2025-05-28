@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exclusive Piano Records | My Playlist</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Exclusive Piano Records</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="new-drops.html">New Drops</a></li>
+                    <li><a href="playlist.html" class="active">Playlist</a></li>
+                    <li><a href="producers.html">Producers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h2>My Playlist</h2>
+                <p>Create and manage your personal collection of exclusive tracks</p>
+            </div>
+        </section>
+
+        <section class="playlist">
+            <div class="container">
+                <div class="playlist-controls">
+                    <input type="text" id="playlist-name" placeholder="Name your playlist">
+                    <button id="save-playlist" class="btn">Save Playlist</button>
+                    <button id="clear-playlist" class="btn btn-outline">Clear All</button>
+                </div>
+
+                <div id="playlist-items" class="playlist-items">
+                    <!-- Playlist items will be added here dynamically -->
+                    <p class="empty-message">Your playlist is empty. Add tracks from the New Drops page.</p>
+                </div>
+
+                <div class="playlist-actions">
+                    <button id="export-playlist" class="btn" disabled>Export Playlist</button>
+                    <button id="share-playlist" class="btn btn-outline" disabled>Share</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Exclusive Piano Records</h3>
+                    <p>Bringing you the hottest unreleased Amapiano tracks from across Africa.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="new-drops.html">New Drops</a></li>
+                        <li><a href="playlist.html">Playlist</a></li>
+                        <li><a href="producers.html">Producers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-soundcloud"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Exclusive Piano Records. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
