@@ -1,11 +1,12 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exclusive Piano Records | Top Producers</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="description" content="Meet the top Amapiano producers creating exclusive tracks">
 </head>
 <body>
     <header>
@@ -16,9 +17,12 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="new-drops.html">New Drops</a></li>
                     <li><a href="playlist.html">Playlist</a></li>
-                    <li><a href="producers.html" class="active">Producers</a></li>
+                    <li><a href="producers.html" class="active" aria-current="page">Producers</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
+                <button id="theme-toggle" class="btn btn-small" aria-label="Toggle dark mode">
+                    <i class="fas fa-sun"></i> Light Mode
+                </button>
             </nav>
         </div>
     </header>
@@ -28,85 +32,87 @@
             <div class="container">
                 <h2>Top Producers</h2>
                 <p>Meet the talented producers behind our exclusive tracks</p>
+                <div class="producer-filters">
+                    <div class="filter-group">
+                        <label for="city-filter">Filter by City:</label>
+                        <select id="city-filter" aria-label="Filter producers by city">
+                            <option value="all">All Cities</option>
+                            <option value="pretoria">Pretoria</option>
+                            <option value="johannesburg">Johannesburg</option>
+                            <option value="durban">Durban</option>
+                            <option value="cape-town">Cape Town</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="sort-producers">Sort by:</label>
+                        <select id="sort-producers" aria-label="Sort producers">
+                            <option value="popular">Most Popular</option>
+                            <option value="tracks">Most Tracks</option>
+                            <option value="az">A-Z</option>
+                        </select>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section class="producers">
             <div class="container">
-                <div class="producers-grid">
-
-                    <div class="producer-card">
-                        <img src="media/kabzadesmallprofile.jpg" alt="Kabza De Small">
-                        <h3>Kabza De Small</h3>
-                        <p class="location">Pretoria, South Africa</p>
-                        <p class="bio">The King of Amapiano, known for his melodic piano lines and infectious rhythms.</p>
-                        <div class="stats">
-                            <div class="stat"><span class="number">24</span><span class="label">Tracks</span></div>
-                            <div class="stat"><span class="number">1.2M</span><span class="label">Plays</span></div>
+                <div class="producers-grid" id="producers-container">
+                    <!-- Skeleton loading state -->
+                    <div class="skeleton-producer">
+                        <div class="skeleton-avatar"></div>
+                        <div class="skeleton-text"></div>
+                        <div class="skeleton-text short"></div>
+                        <div class="skeleton-stats">
+                            <div class="skeleton-stat"></div>
+                            <div class="skeleton-stat"></div>
                         </div>
-                        <a href="new-drops.html" class="btn btn-small">View Tracks</a>
+                        <div class="skeleton-button"></div>
                     </div>
-
-                    <div class="producer-card">
-                        <img src="media/djmaphorisaprofile.jpg" alt="DJ Maphorisa">
-                        <h3>DJ Maphorisa</h3>
-                        <p class="location">Johannesburg, South Africa</p>
-                        <p class="bio">A versatile producer blending Amapiano with other African music styles.</p>
-                        <div class="stats">
-                            <div class="stat"><span class="number">18</span><span class="label">Tracks</span></div>
-                            <div class="stat"><span class="number">980K</span><span class="label">Plays</span></div>
+                    <!-- Repeat skeleton 5 more times -->
+                    <div class="skeleton-producer">
+                        <div class="skeleton-avatar"></div>
+                        <div class="skeleton-text"></div>
+                        <div class="skeleton-text short"></div>
+                        <div class="skeleton-stats">
+                            <div class="skeleton-stat"></div>
+                            <div class="skeleton-stat"></div>
                         </div>
-                        <a href="new-drops.html" class="btn btn-small">View Tracks</a>
+                        <div class="skeleton-button"></div>
                     </div>
-
-                    <div class="producer-card">
-                        <img src="media/focalisticfeaturedthisweek.jpg" alt="Focalistic">
-                        <h3>Focalistic</h3>
-                        <p class="location">Pretoria, South Africa</p>
-                        <p class="bio">Pitori Maradona bringing the streets to the world with his unique sound.</p>
-                        <div class="stats">
-                            <div class="stat"><span class="number">15</span><span class="label">Tracks</span></div>
-                            <div class="stat"><span class="number">850K</span><span class="label">Plays</span></div>
+                    <div class="skeleton-producer">
+                        <div class="skeleton-avatar"></div>
+                        <div class="skeleton-text"></div>
+                        <div class="skeleton-text short"></div>
+                        <div class="skeleton-stats">
+                            <div class="skeleton-stat"></div>
+                            <div class="skeleton-stat"></div>
                         </div>
-                        <a href="new-drops.html" class="btn btn-small">View Tracks</a>
+                        <div class="skeleton-button"></div>
                     </div>
+                </div>
+            </div>
+        </section>
 
-                    <div class="producer-card">
-                        <img src="media/majorleaguedjzprofile.jpg" alt="Major League DJz">
-                        <h3>Major League DJz</h3>
-                        <p class="location">Johannesburg, South Africa</p>
-                        <p class="bio">Twin brothers pushing the boundaries of Amapiano globally.</p>
-                        <div class="stats">
-                            <div class="stat"><span class="number">22</span><span class="label">Tracks</span></div>
-                            <div class="stat"><span class="number">1.1M</span><span class="label">Plays</span></div>
-                        </div>
-                        <a href="new-drops.html" class="btn btn-small">View Tracks</a>
+        <section class="producer-stats">
+            <div class="container">
+                <h3>Producer Statistics</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <h4>Total Producers</h4>
+                        <p id="total-producers">0</p>
                     </div>
-
-                    <div class="producer-card">
-                        <img src="media/dbngogoprofile.jpg" alt="DBN Gogo">
-                        <h3>DBN Gogo</h3>
-                        <p class="location">Durban, South Africa</p>
-                        <p class="bio">Female powerhouse bringing fresh energy to the Amapiano scene.</p>
-                        <div class="stats">
-                            <div class="stat"><span class="number">12</span><span class="label">Tracks</span></div>
-                            <div class="stat"><span class="number">750K</span><span class="label">Plays</span></div>
-                        </div>
-                        <a href="new-drops.html" class="btn btn-small">View Tracks</a>
+                    <div class="stat-card">
+                        <i class="fas fa-music"></i>
+                        <h4>Total Tracks</h4>
+                        <p id="total-tracks">0</p>
                     </div>
-
-                    <div class="producer-card">
-                        <img src="media/mfrsoulsprofile.jpg" alt="MFR Souls">
-                        <h3>MFR Souls</h3>
-                        <p class="location">Cape Town, South Africa</p>
-                        <p class="bio">Dynamic duo known for their soulful Amapiano productions.</p>
-                        <div class="stats">
-                            <div class="stat"><span class="number">14</span><span class="label">Tracks</span></div>
-                            <div class="stat"><span class="number">680K</span><span class="label">Plays</span></div>
-                        </div>
-                        <a href="new-drops.html" class="btn btn-small">View Tracks</a>
+                    <div class="stat-card">
+                        <i class="fas fa-headphones"></i>
+                        <h4>Total Plays</h4>
+                        <p id="total-plays">0</p>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -132,10 +138,10 @@
                 <div class="footer-section">
                     <h3>Follow Us</h3>
                     <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-soundcloud"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="SoundCloud"><i class="fab fa-soundcloud"></i></a>
                     </div>
                 </div>
             </div>
@@ -145,6 +151,202 @@
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Simulate loading delay
+            setTimeout(() => {
+                const producersContainer = document.getElementById('producers-container');
+                producersContainer.innerHTML = '';
+
+                const producersData = [
+                    {
+                        id: 1,
+                        name: "Kabza De Small",
+                        location: "Pretoria",
+                        bio: "The King of Amapiano, known for his melodic piano lines and infectious rhythms.",
+                        tracks: 24,
+                        plays: "1.2M",
+                        image: "media/kabzadesmallprofile.jpg",
+                        isFavorite: false
+                    },
+                    {
+                        id: 2,
+                        name: "DJ Maphorisa",
+                        location: "Johannesburg",
+                        bio: "A versatile producer blending Amapiano with other African music styles.",
+                        tracks: 18,
+                        plays: "980K",
+                        image: "media/djmaphorisaprofile.jpg",
+                        isFavorite: false
+                    },
+                    {
+                        id: 3,
+                        name: "Focalistic",
+                        location: "Pretoria",
+                        bio: "Pitori Maradona bringing the streets to the world with his unique sound.",
+                        tracks: 15,
+                        plays: "850K",
+                        image: "media/focalisticfeaturedthisweek.jpg",
+                        isFavorite: false
+                    },
+                    {
+                        id: 4,
+                        name: "Major League DJz",
+                        location: "Johannesburg",
+                        bio: "Twin brothers pushing the boundaries of Amapiano globally.",
+                        tracks: 22,
+                        plays: "1.1M",
+                        image: "media/majorleaguedjzprofile.jpg",
+                        isFavorite: false
+                    },
+                    {
+                        id: 5,
+                        name: "DBN Gogo",
+                        location: "Durban",
+                        bio: "Female powerhouse bringing fresh energy to the Amapiano scene.",
+                        tracks: 12,
+                        plays: "750K",
+                        image: "media/dbngogoprofile.jpg",
+                        isFavorite: false
+                    },
+                    {
+                        id: 6,
+                        name: "MFR Souls",
+                        location: "Cape Town",
+                        bio: "Dynamic duo known for their soulful Amapiano productions.",
+                        tracks: 14,
+                        plays: "680K",
+                        image: "media/mfrsoulsprofile.jpg",
+                        isFavorite: false
+                    }
+                ];
+
+                // Load favorites from localStorage
+                const favorites = JSON.parse(localStorage.getItem('producerFavorites')) || [];
+                producersData.forEach(producer => {
+                    producer.isFavorite = favorites.includes(producer.id);
+                });
+
+                // Render producer cards
+                producersData.forEach(producer => {
+                    const producerCard = document.createElement('div');
+                    producerCard.className = `producer-card ${producer.location.toLowerCase().replace(' ', '-')}`;
+                    producerCard.innerHTML = `
+                            <div class="producer-header">
+                                <button class="favorite-btn ${producer.isFavorite ? 'fas' : 'far'} fa-heart"
+                                        data-producer-id="${producer.id}"
+                                        aria-label="${producer.isFavorite ? 'Remove from favorites' : 'Add to favorites'}">
+                                </button>
+                                <img src="${producer.image}"
+                                     alt="${producer.name}"
+                                     width="150"
+                                     height="150"
+                                     loading="lazy">
+                            </div>
+                            <h3>${producer.name}</h3>
+                            <p class="location"><i class="fas fa-map-marker-alt"></i> ${producer.location}, South Africa</p>
+                            <p class="bio">${producer.bio}</p>
+                            <div class="stats">
+                                <div class="stat"><span class="number">${producer.tracks}</span><span class="label">Tracks</span></div>
+                                <div class="stat"><span class="number">${producer.plays}</span><span class="label">Plays</span></div>
+                            </div>
+                            <a href="new-drops.html?producer=${encodeURIComponent(producer.name)}" class="btn btn-small">
+                                View Tracks
+                            </a>
+                        `;
+                    producersContainer.appendChild(producerCard);
+                });
+
+                // Update statistics
+                document.getElementById('total-producers').textContent = producersData.length;
+                document.getElementById('total-tracks').textContent = producersData.reduce((sum, p) => sum + p.tracks, 0);
+                document.getElementById('total-plays').textContent = producersData
+                    .map(p => parseFloat(p.plays.replace(/[^\d.]/g, '')))
+                    .reduce((sum, plays) => sum + plays, 0)
+                    .toLocaleString() + '+';
+
+                // Initialize favorite buttons
+                document.querySelectorAll('.favorite-btn').forEach(btn => {
+                    btn.addEventListener('click', function () {
+                        const producerId = parseInt(this.getAttribute('data-producer-id'));
+                        const favorites = JSON.parse(localStorage.getItem('producerFavorites')) || [];
+
+                        if (this.classList.contains('fas')) {
+                            // Remove from favorites
+                            this.classList.remove('fas');
+                            this.classList.add('far');
+                            this.setAttribute('aria-label', 'Add to favorites');
+                            const index = favorites.indexOf(producerId);
+                            if (index > -1) {
+                                favorites.splice(index, 1);
+                            }
+                        } else {
+                            // Add to favorites
+                            this.classList.remove('far');
+                            this.classList.add('fas');
+                            this.setAttribute('aria-label', 'Remove from favorites');
+                            favorites.push(producerId);
+                        }
+
+                        localStorage.setItem('producerFavorites', JSON.stringify(favorites));
+                    });
+                });
+
+                // Filter functionality
+                const cityFilter = document.getElementById('city-filter');
+                const sortProducers = document.getElementById('sort-producers');
+
+                cityFilter.addEventListener('change', filterProducers);
+                sortProducers.addEventListener('change', filterProducers);
+
+                function filterProducers() {
+                    const city = cityFilter.value;
+                    const sort = sortProducers.value;
+                    const producerCards = document.querySelectorAll('.producer-card');
+
+                    // Filter by city
+                    producerCards.forEach(card => {
+                        if (city === 'all' || card.classList.contains(city)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+
+                    // Sort producers
+                    const producersGrid = document.querySelector('.producers-grid');
+                    const producers = Array.from(producerCards)
+                        .filter(card => card.style.display !== 'none');
+
+                    if (sort === 'popular') {
+                        producers.sort((a, b) => {
+                            const aPlays = parseFloat(a.querySelector('.number:nth-child(2)').textContent.replace(/[^\d.]/g, ''));
+                            const bPlays = parseFloat(b.querySelector('.number:nth-child(2)').textContent.replace(/[^\d.]/g, ''));
+                            return bPlays - aPlays;
+                        });
+                    } else if (sort === 'tracks') {
+                        producers.sort((a, b) => {
+                            const aTracks = parseInt(a.querySelector('.number:first-child').textContent);
+                            const bTracks = parseInt(b.querySelector('.number:first-child').textContent);
+                            return bTracks - aTracks;
+                        });
+                    } else if (sort === 'az') {
+                        producers.sort((a, b) => {
+                            const aName = a.querySelector('h3').textContent;
+                            const bName = b.querySelector('h3').textContent;
+                            return aName.localeCompare(bName);
+                        });
+                    }
+
+                    // Re-append sorted producers
+                    producers.forEach(producer => {
+                        producersGrid.appendChild(producer);
+                    });
+                }
+
+            }, 1500); // 1.5 second loading delay
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

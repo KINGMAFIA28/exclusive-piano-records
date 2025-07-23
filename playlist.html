@@ -1,11 +1,12 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exclusive Piano Records | My Playlist</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="description" content="Manage your personal Amapiano playlist">
 </head>
 <body>
     <header>
@@ -15,10 +16,13 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="new-drops.html">New Drops</a></li>
-                    <li><a href="playlist.html" class="active">Playlist</a></li>
+                    <li><a href="playlist.html" class="active" aria-current="page">Playlist</a></li>
                     <li><a href="producers.html">Producers</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
+                <button id="theme-toggle" class="btn btn-small" aria-label="Toggle dark mode">
+                    <i class="fas fa-sun"></i> Light Mode
+                </button>
             </nav>
         </div>
     </header>
@@ -34,19 +38,49 @@
         <section class="playlist">
             <div class="container">
                 <div class="playlist-controls">
-                    <input type="text" id="playlist-name" placeholder="Name your playlist">
-                    <button id="save-playlist" class="btn">Save Playlist</button>
-                    <button id="clear-playlist" class="btn btn-outline">Clear All</button>
+                    <div class="playlist-name-group">
+                        <input type="text" id="playlist-name" placeholder="Untitled Playlist" aria-label="Playlist name">
+                        <button id="save-playlist" class="btn">
+                            <i class="fas fa-save"></i> Save
+                        </button>
+                    </div>
+                    <div class="playlist-actions-group">
+                        <button id="clear-playlist" class="btn btn-outline">
+                            <i class="fas fa-trash"></i> Clear All
+                        </button>
+                        <button id="import-playlist" class="btn btn-outline">
+                            <i class="fas fa-file-import"></i> Import
+                        </button>
+                    </div>
                 </div>
 
                 <div id="playlist-items" class="playlist-items">
-                    <!-- Playlist items will be added here dynamically -->
-                    <p class="empty-message">Your playlist is empty. Add tracks from the New Drops page.</p>
+                    <!-- Dynamic content will load here -->
+                    <div class="empty-state">
+                        <i class="fas fa-music"></i>
+                        <p>Your playlist is empty</p>
+                        <a href="new-drops.html" class="btn">
+                            <i class="fas fa-plus"></i> Add Tracks
+                        </a>
+                    </div>
                 </div>
 
-                <div class="playlist-actions">
-                    <button id="export-playlist" class="btn" disabled>Export Playlist</button>
-                    <button id="share-playlist" class="btn btn-outline" disabled>Share</button>
+                <div class="playlist-footer">
+                    <div class="playlist-stats">
+                        <span id="track-count">0 tracks</span>
+                        <span id="duration">0:00</span>
+                    </div>
+                    <div class="playlist-export">
+                        <button id="play-all" class="btn">
+                            <i class="fas fa-play"></i> Play All
+                        </button>
+                        <button id="export-playlist" class="btn btn-outline">
+                            <i class="fas fa-file-export"></i> Export
+                        </button>
+                        <button id="share-playlist" class="btn btn-outline">
+                            <i class="fas fa-share-alt"></i> Share
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -72,19 +106,220 @@
                 <div class="footer-section">
                     <h3>Follow Us</h3>
                     <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-soundcloud"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="SoundCloud"><i class="fab fa-soundcloud"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Exclusive Piano Records. All rights reserved.</p>
+                <p>&copy; 2025 Exclusive Piano Records. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize playlist if empty
+            if (!localStorage.getItem('playlist')) {
+                localStorage.setItem('playlist', JSON.stringify([]));
+            }
+
+            // Load saved playlist name
+            const savedName = localStorage.getItem('playlistName');
+            if (savedName) {
+                document.getElementById('playlist-name').value = savedName;
+            }
+
+            // Load playlist items
+            loadPlaylist();
+
+            // Save playlist name
+            document.getElementById('save-playlist').addEventListener('click', function () {
+                const playlistName = document.getElementById('playlist-name').value.trim();
+                if (playlistName) {
+                    localStorage.setItem('playlistName', playlistName);
+                    showToast('Playlist name saved!');
+                } else {
+                    showToast('Please enter a name', 'error');
+                }
+            });
+
+            // Clear playlist
+            document.getElementById('clear-playlist').addEventListener('click', function () {
+                if (confirm('Are you sure you want to clear your entire playlist?')) {
+                    localStorage.setItem('playlist', JSON.stringify([]));
+                    loadPlaylist();
+                    showToast('Playlist cleared');
+                }
+            });
+
+            // Play all tracks
+            document.getElementById('play-all').addEventListener('click', function () {
+                const playlist = JSON.parse(localStorage.getItem('playlist'));
+                if (playlist.length === 0) {
+                    showToast('Playlist is empty!', 'error');
+                } else {
+                    showToast(`Playing ${playlist.length} tracks...`);
+                    // In a real app: Implement audio queue here
+                }
+            });
+
+            // Export playlist
+            document.getElementById('export-playlist').addEventListener('click', function () {
+                const playlist = JSON.parse(localStorage.getItem('playlist'));
+                if (playlist.length === 0) {
+                    showToast('Nothing to export!', 'error');
+                    return;
+                }
+
+                const playlistName = document.getElementById('playlist-name').value.trim() || 'MyPlaylist';
+                const data = {
+                    name: playlistName,
+                    tracks: playlist,
+                    createdAt: new Date().toISOString()
+                };
+
+                const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `${playlistName.replace(/[^a-z0-9]/gi, '_')}.json`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+
+                showToast('Playlist exported!');
+            });
+
+            // Share playlist (simulated)
+            document.getElementById('share-playlist').addEventListener('click', function () {
+                const playlist = JSON.parse(localStorage.getItem('playlist'));
+                if (playlist.length === 0) {
+                    showToast('Nothing to share!', 'error');
+                    return;
+                }
+                showToast('Share feature would open social media dialog in real app');
+            });
+
+            // Import playlist (simulated)
+            document.getElementById('import-playlist').addEventListener('click', function () {
+                showToast('Import would open file dialog in real app');
+            });
+
+            // Helper function to load playlist
+            function loadPlaylist() {
+                const playlist = JSON.parse(localStorage.getItem('playlist'));
+                const container = document.getElementById('playlist-items');
+
+                if (playlist.length === 0) {
+                    container.innerHTML = `
+                            <div class="empty-state">
+                                <i class="fas fa-music"></i>
+                                <p>Your playlist is empty</p>
+                                <a href="new-drops.html" class="btn">
+                                    <i class="fas fa-plus"></i> Add Tracks
+                                </a>
+                            </div>
+                        `;
+                    document.getElementById('play-all').disabled = true;
+                    document.getElementById('export-playlist').disabled = true;
+                    document.getElementById('share-playlist').disabled = true;
+                    updateStats(0, '0:00');
+                    return;
+                }
+
+                let totalDuration = 0;
+                container.innerHTML = '';
+                playlist.forEach((track, index) => {
+                    // Parse duration (e.g. "3:45" to seconds)
+                    const [mins, secs] = track.duration.split(':').map(Number);
+                    totalDuration += (mins * 60) + secs;
+
+                    const trackElement = document.createElement('div');
+                    trackElement.className = 'playlist-item';
+                    trackElement.innerHTML = `
+                            <div class="track-info">
+                                <span class="track-number">${index + 1}.</span>
+                                <img src="${track.cover}"
+                                     alt="${track.artist}"
+                                     width="50"
+                                     height="50"
+                                     loading="lazy">
+                                <div class="track-details">
+                                    <h4 class="track-title">${track.name}</h4>
+                                    <p class="track-artist">${track.artist}</p>
+                                    <span class="track-duration">${track.duration}</span>
+                                </div>
+                            </div>
+                            <div class="track-actions">
+                                <button class="btn btn-small play-track" data-audio="${track.audio}">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <button class="btn btn-small remove-track" data-track='${JSON.stringify(track)}'>
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        `;
+                    container.appendChild(trackElement);
+                });
+
+                // Format total duration
+                const durationMins = Math.floor(totalDuration / 60);
+                const durationSecs = totalDuration % 60;
+                const formattedDuration = `${durationMins}:${durationSecs.toString().padStart(2, '0')}`;
+
+                updateStats(playlist.length, formattedDuration);
+
+                // Add event listeners to new elements
+                document.querySelectorAll('.remove-track').forEach(btn => {
+                    btn.addEventListener('click', function () {
+                        const trackToRemove = JSON.parse(this.getAttribute('data-track'));
+                        removeFromPlaylist(trackToRemove);
+                    });
+                });
+
+                document.querySelectorAll('.play-track').forEach(btn => {
+                    btn.addEventListener('click', function () {
+                        const audioFile = this.getAttribute('data-audio');
+                        showToast(`Now playing: ${audioFile.split('/').pop()}`);
+                        // In a real app: Play the audio file
+                    });
+                });
+
+                document.getElementById('play-all').disabled = false;
+                document.getElementById('export-playlist').disabled = false;
+                document.getElementById('share-playlist').disabled = false;
+            }
+
+            function removeFromPlaylist(track) {
+                let playlist = JSON.parse(localStorage.getItem('playlist'));
+                playlist = playlist.filter(item => item.name !== track.name);
+                localStorage.setItem('playlist', JSON.stringify(playlist));
+                loadPlaylist();
+                showToast('Track removed');
+            }
+
+            function updateStats(count, duration) {
+                document.getElementById('track-count').textContent = `${count} ${count === 1 ? 'track' : 'tracks'}`;
+                document.getElementById('duration').textContent = duration;
+            }
+
+            function showToast(message, type = 'success') {
+                const toast = document.createElement('div');
+                toast.className = `toast toast-${type}`;
+                toast.textContent = message;
+                document.body.appendChild(toast);
+
+                setTimeout(() => {
+                    toast.classList.add('fade-out');
+                    setTimeout(() => toast.remove(), 300);
+                }, 3000);
+            }
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

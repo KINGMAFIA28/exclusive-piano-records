@@ -1,11 +1,12 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exclusive Piano Records | Home</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="description" content="Discover unreleased Amapiano tracks from top African producers">
 </head>
 <body>
     <header>
@@ -13,12 +14,15 @@
             <h1 class="logo">Exclusive Piano Records</h1>
             <nav>
                 <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="index.html" class="active" aria-current="page">Home</a></li>
                     <li><a href="new-drops.html">New Drops</a></li>
                     <li><a href="playlist.html">Playlist</a></li>
                     <li><a href="producers.html">Producers</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
+                <button id="theme-toggle" class="btn btn-small" aria-label="Toggle dark mode">
+                    <i class="fas fa-sun"></i> Light Mode
+                </button>
             </nav>
         </div>
     </header>
@@ -28,40 +32,96 @@
             <div class="container">
                 <h2>Unreleased Amapiano Exclusives</h2>
                 <p>Discover the hottest unreleased Amapiano tracks from top producers across Africa</p>
-                <a href="new-drops.html" class="btn">Explore New Drops</a>
+                <div class="hero-buttons">
+                    <a href="new-drops.html" class="btn">Explore New Drops</a>
+                    <a href="#featured" class="btn btn-outline">Listen Now</a>
+                </div>
             </div>
         </section>
 
-        <section class="featured">
+        <section id="featured" class="featured">
             <div class="container">
                 <h2>Featured This Week</h2>
                 <div class="tracks-grid">
                     <div class="track-card">
-                        <img src="media/djsphectaculafeaturedthisweek.jpg" alt="DJ Sphectacula - Midnight Groove" width="300">
+                        <div class="track-image-container">
+                            <img src="media/djsphectaculafeaturedthisweek.jpg"
+                                 alt="DJ Sphectacula posing with headphones"
+                                 width="300"
+                                 height="300"
+                                 loading="lazy">
+                            <button class="quick-add-btn" aria-label="Quick add to playlist">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                         <h3>Midnight Groove</h3>
-                        <p>DJ Sphectacula</p>
-                        <audio controls>
+                        <p class="artist">DJ Sphectacula</p>
+                        <div class="track-meta">
+                            <span class="genre">Amapiano</span>
+                            <span class="duration">2:45</span>
+                        </div>
+                        <audio controls aria-label="Audio player for Midnight Groove">
                             <source src="media/djsphectaculatrackfeaturedthisweek.mp3" type="audio/mpeg">
                             Your browser does not support the audio element.
                         </audio>
+                        <button class="btn btn-small add-to-playlist"
+                                data-track='{"name":"Midnight Groove","artist":"DJ Sphectacula","cover":"media/djsphectaculafeaturedthisweek.jpg","duration":"2:45","audio":"media/djsphectaculatrackfeaturedthisweek.mp3"}'>
+                            <i class="fas fa-plus"></i> Add to Playlist
+                        </button>
                     </div>
+
                     <div class="track-card">
-                        <img src="media/kabzadesmallfeaturedthisweek.jpg" alt="Kabza De Small - Sunrise Vibes" width="300">
+                        <div class="track-image-container">
+                            <img src="media/kabzadesmallfeaturedthisweek.jpg"
+                                 alt="Kabza De Small performing live"
+                                 width="300"
+                                 height="300"
+                                 loading="lazy">
+                            <button class="quick-add-btn" aria-label="Quick add to playlist">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                         <h3>Sunrise Vibes</h3>
-                        <p>Kabza De Small</p>
-                        <audio controls>
+                        <p class="artist">Kabza De Small</p>
+                        <div class="track-meta">
+                            <span class="genre">Amapiano</span>
+                            <span class="duration">3:22</span>
+                        </div>
+                        <audio controls aria-label="Audio player for Sunrise Vibes">
                             <source src="media/kabzadesmalltrackfeaturedthisweek.mp3" type="audio/mpeg">
                             Your browser does not support the audio element.
                         </audio>
+                        <button class="btn btn-small add-to-playlist"
+                                data-track='{"name":"Sunrise Vibes","artist":"Kabza De Small","cover":"media/kabzadesmallfeaturedthisweek.jpg","duration":"3:22","audio":"media/kabzadesmalltrackfeaturedthisweek.mp3"}'>
+                            <i class="fas fa-plus"></i> Add to Playlist
+                        </button>
                     </div>
+
                     <div class="track-card">
-                        <img src="media/focalisticfeaturedthisweek.jpg" alt="Focalistic - African Storm" width="300">
+                        <div class="track-image-container">
+                            <img src="media/focalisticfeaturedthisweek.jpg"
+                                 alt="Focalistic wearing sunglasses"
+                                 width="300"
+                                 height="300"
+                                 loading="lazy">
+                            <button class="quick-add-btn" aria-label="Quick add to playlist">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                         <h3>African Storm</h3>
-                        <p>Focalistic</p>
-                        <audio controls>
+                        <p class="artist">Focalistic</p>
+                        <div class="track-meta">
+                            <span class="genre">Amapiano</span>
+                            <span class="duration">2:58</span>
+                        </div>
+                        <audio controls aria-label="Audio player for African Storm">
                             <source src="media/focalistictrackfeaturedthisweek.mp3" type="audio/mpeg">
                             Your browser does not support the audio element.
                         </audio>
+                        <button class="btn btn-small add-to-playlist"
+                                data-track='{"name":"African Storm","artist":"Focalistic","cover":"media/focalisticfeaturedthisweek.jpg","duration":"2:58","audio":"media/focalistictrackfeaturedthisweek.mp3"}'>
+                            <i class="fas fa-plus"></i> Add to Playlist
+                        </button>
                     </div>
                 </div>
             </div>
@@ -72,9 +132,38 @@
                 <h2>Get Exclusive Drops First</h2>
                 <p>Subscribe to our newsletter for early access to new releases</p>
                 <form id="newsletter-form">
-                    <input type="email" placeholder="Your email address" required>
-                    <button type="submit" class="btn">Subscribe</button>
+                    <input type="email"
+                           placeholder="Your email address"
+                           required
+                           aria-label="Email address for newsletter"
+                           aria-required="true">
+                    <button type="submit" class="btn">
+                        <i class="fas fa-paper-plane"></i> Subscribe
+                    </button>
                 </form>
+                <p class="privacy-notice">We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-music"></i>
+                        <h3>150+</h3>
+                        <p>Exclusive Tracks</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <h3>25+</h3>
+                        <p>Top Producers</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-globe-africa"></i>
+                        <h3>5</h3>
+                        <p>African Countries</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -85,6 +174,14 @@
                 <div class="footer-section">
                     <h3>Exclusive Piano Records</h3>
                     <p>Bringing you the hottest unreleased Amapiano tracks from across Africa.</p>
+                    <div class="language-selector">
+                        <label for="language">Language:</label>
+                        <select id="language" aria-label="Select language">
+                            <option value="en">English</option>
+                            <option value="zu">Zulu</option>
+                            <option value="st">Sotho</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="footer-section">
                     <h3>Quick Links</h3>
@@ -99,15 +196,20 @@
                 <div class="footer-section">
                     <h3>Follow Us</h3>
                     <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-soundcloud"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="SoundCloud"><i class="fab fa-soundcloud"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 Exclusive Piano Records. All rights reserved.</p>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookies</a>
+                </div>
             </div>
         </div>
     </footer>
